@@ -6,7 +6,7 @@ extractor.py - extracts .irbd files into .dat files [Current(nA) with time(s)]
 execute with the following linux command: 
 $ od -A d -t f8 -w32 Raw_data.irbd |./extractor.py > Raw_data.dat
 
-od translates the binary into a formst python can interface with, then pipes the output to the .dat file, 
+od translates the binary into a form python can interface with, then pipes the output to the .dat file, 
 which can later be read line-by-line
 
 -----
