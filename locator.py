@@ -1,5 +1,9 @@
 #!/usr/bin/python
 
+#locator.py - locates and returns a list of all 'blockade_1.csv' 
+#type files in a directory, copies and renames them with their
+#parent directory's name and sticks them in the parent directory.
+
 import re, os
 import fnmatch
 import csv
@@ -45,21 +49,21 @@ def csv_append():
 				minlength = len(row)
 				header =row
 				header.append('cumulative_counts')
-				header.append('mass_flow')
-				header.append('total_pressure')
-				header.append('applied_pressure')
+				#header.append('mass_flow')
+				#header.append('total_pressure')
+				#header.append('applied_pressure')
 				print header
 			elif len(row) < minlength: #ensures all included rows contain all data and discards any that dont
 				print str(rownum)+" omitted due to incomplete data"
 			else: #calculates rapplied pressure based no time and calibration flow rate
-				time_min = float(row[0])/60
-				mass_flow = (-0.058*time_min*time_min+30.142*time_min-0.6686)
-				total_pressure = (mass_flow/1000)/(math.pi*r*r)
-				applied_pressure = initial_pressure-total_pressure			
+				#time_min = float(row[0])/60
+				#mass_flow = (-0.058*time_min*time_min+30.142*time_min-0.6686)
+				#total_pressure = (mass_flow/1000)/(math.pi*r*r)
+				#applied_pressure = initial_pressure-total_pressure			
 				row.append(rownum)
-				row.append(mass_flow)
-				row.append(total_pressure)
-				row.append(applied_pressure)			
+				#row.append(mass_flow)
+				#row.append(total_pressure)
+				#row.append(applied_pressure)			
 				writer.writerow(row)
 			rownum += 1
 		ifile.close()
