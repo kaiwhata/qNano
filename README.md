@@ -69,5 +69,11 @@ N.B. These should ideally be combined with others into a generic class file that
 RMS_noise.png - plot comparing the RMS noise of our qNano with applied voltage dictating the acceptable RMS region (+/-0.5V)
 
 ---
-porebias.ong - observed pore bias at various strectch. Still not clear why this is
+porebias.png - observed pore bias at various strectch. Still not clear why this is
+
 ---
+irbd_analysis.py - performs a primitive extraction of events from an qNano .irbd file after it has been converted to .dat using translator.py above
+
+Current version simply extract datapoints for events and puts them in a list of lists at the end called 'event_points' and 'time_points'
+that correspond directly to each other. The next version will also output a .csv of FWHM, duration, baseline current, start time, blockade magnitude etc
+------
