@@ -20,21 +20,37 @@ xml_interpreter.py - extracts parameters from the .xml file accompanying each qN
 options are:
 
 -<SrAperture>A6006</SrAperture>
+
 -<SrDilution>1</SrDilution>
+
 -<SrElectrolyteID>SEB</SrElectrolyteID>
+
 -<SrExperiment>Elf_charge_paper_review</SrExperiment>
+
 -<SrFileName>c:\Izon Data\\Elf_charge_paper_review\B86_pH6_0.5V_30.1.12_b\B86_pH6_0.5V_30.1.12_b.irbd</SrFileName>
+
 -<SrNotes />
+
 -<SrPartNumber />
+
 -<SrPressure>0</SrPressure>
+
 -<SrRawConcentration>0</SrRawConcentration>
+
 -<SrSampleName>B86_pH6_0.5V_30.1.12_b</SrSampleName>
+
 -<SrSize>0</SrSize>
+
 -<SrType>Sample</SrType>
+
 -<SrZetaPotential>0</SrZetaPotential>
+
 -<SrRecordTime>2012-01-30T15:32:12.5739991+13:00</SrRecordTime>
+
 -<SrBandwidthFilter>0</SrBandwidthFilter>
+
 -<SrBandwidthFilterOn>false</SrBandwidthFilterOn>
+
 
 ----
 baseline_comparison.py - extracts baselines of all plots and overlays on the same graph. 
