@@ -18,22 +18,23 @@ in the parent directory
 xml_interpreter.py - extracts parameters from the .xml file accompanying each qNano recording.
 
 options are:
-  <SrAperture>A6006</SrAperture>
-  <SrDilution>1</SrDilution>
-  <SrElectrolyteID>SEB</SrElectrolyteID>
-  <SrExperiment>Elf_charge_paper_review</SrExperiment>
-  <SrFileName>c:\Izon Data\\Elf_charge_paper_review\B86_pH6_0.5V_30.1.12_b\B86_pH6_0.5V_30.1.12_b.irbd</SrFileName>
-  <SrNotes />
-  <SrPartNumber />
-  <SrPressure>0</SrPressure>
-  <SrRawConcentration>0</SrRawConcentration>
-  <SrSampleName>B86_pH6_0.5V_30.1.12_b</SrSampleName>
-  <SrSize>0</SrSize>
-  <SrType>Sample</SrType>
-  <SrZetaPotential>0</SrZetaPotential>
-  <SrRecordTime>2012-01-30T15:32:12.5739991+13:00</SrRecordTime>
-  <SrBandwidthFilter>0</SrBandwidthFilter>
-  <SrBandwidthFilterOn>false</SrBandwidthFilterOn>
+
+-<SrAperture>A6006</SrAperture>
+-<SrDilution>1</SrDilution>
+-<SrElectrolyteID>SEB</SrElectrolyteID>
+-<SrExperiment>Elf_charge_paper_review</SrExperiment>
+-<SrFileName>c:\Izon Data\\Elf_charge_paper_review\B86_pH6_0.5V_30.1.12_b\B86_pH6_0.5V_30.1.12_b.irbd</SrFileName>
+-<SrNotes />
+-<SrPartNumber />
+-<SrPressure>0</SrPressure>
+-<SrRawConcentration>0</SrRawConcentration>
+-<SrSampleName>B86_pH6_0.5V_30.1.12_b</SrSampleName>
+-<SrSize>0</SrSize>
+-<SrType>Sample</SrType>
+-<SrZetaPotential>0</SrZetaPotential>
+-<SrRecordTime>2012-01-30T15:32:12.5739991+13:00</SrRecordTime>
+-<SrBandwidthFilter>0</SrBandwidthFilter>
+-<SrBandwidthFilterOn>false</SrBandwidthFilterOn>
 
 ----
 baseline_comparison.py - extracts baselines of all plots and overlays on the same graph. 
@@ -74,6 +75,5 @@ porebias.png - observed pore bias at various strectch. Still not clear why this 
 ---
 irbd_analysis.py - performs a primitive extraction of events from an qNano .irbd file after it has been converted to .dat using translator.py above
 
-Current version simply extract datapoints for events and puts them in a list of lists at the end called 'event_points' and 'time_points'
-that correspond directly to each other. The next version will also output a .csv of FWHM, duration, baseline current, start time, blockade magnitude etc
+Current version simply extract datapoints for events and puts them in a list of lists at the end called 'event_points' and 'time_points' that correspond directly to each other. The next version will also output a .csv of FWHM, duration, baseline current, start time, blockade magnitude etc
 ------
