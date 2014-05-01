@@ -1,8 +1,8 @@
 from tkinter import *
 
 class book:
-    def __init__(self):
-        title = ""
+    def __init__(self, title_i):
+        self.title = title_i
 
 
 
