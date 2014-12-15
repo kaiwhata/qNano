@@ -68,10 +68,20 @@ def pore_calculate(a,b,d,rxy,rz,P0,V0, psi0, theta_d, zeta_part):
 		#See table 7-6.1 p. 341; table 7-3.1 p. 309; Eq 7-2.15 p. 291
 		return DiffCoeff
 
-	def Eff_ch(zeta_particle, permettivity, radius):
-		#eff_ch = (4*permettivity*math.pi*zeta_particle*1e-3*a_H)/(DiffCoeff)
-		#def particle volume - use volume to caculate effective radius
-		eff_ch = 3*permettivity*zeta_particle/(2*radius**2) #Geoff's edits
+	def particle_volume(rz, rxy):     #SOURCE:http://en.wikipedia.org/wiki/Spheroid
+		Vol = (4*math.pi*rxy**2*rz)/3 
+		print 'Particle Volume is %s m^3' % Vol
+		return Vol
+    
+	def Eff_ch(zeta_particle, permettivity, rz, rxy):
+        #commented lines are Elf's incorrect Eff_ch calculation
+		#DiffCoeff=kB*Temp/(6*math.pi*viscosity*radius)
+		#eff_ch = (4*permettivity*math.pi*zeta_particle*1e-3*radius)/(DiffCoeff)
+        ###############
+		#def particle volume - use volume to calculate effective radius
+		eff_radius = math.pow((3*particle_volume(rz, rxy))/(4*math.pi), 1.0/3)      
+		eff_ch = 3*permettivity*zeta_particle/(2*eff_radius**2) #Geoff's edits
+		print 'Eff Charge is %s C/m^2' % eff_ch
 		return eff_ch	
 		
 	##define surface function of spheroid
@@ -190,10 +200,6 @@ def pore_calculate(a,b,d,rxy,rz,P0,V0, psi0, theta_d, zeta_part):
 	        x[i+1] = x[i] + ( k1 + 2.0 * ( k2 + k3 ) + k4 ) / 6.0
 	
 	    return x
-	
-	#def Eff_ch(zeta_particle, permettivity, a_H, DiffCoeff):
-	#	eff_ch = (4*permettivity*math.pi*zeta_particle*1e-3*a_H)/(DiffCoeff)
-	#	return eff_ch
 	    
 	def calculate_FWHM(tspan, Delta_I):
 		#Find maximum Delta I and FWHM of what was just calcuated
@@ -233,7 +239,7 @@ def pore_calculate(a,b,d,rxy,rz,P0,V0, psi0, theta_d, zeta_part):
 	conductivity = 0.75 #rho #CHECK THIS FOR 0.1M KCL with 0.01M Tris/HEPBS
 	ends=1.25
 	#EffCh=-1.54e-3; #Coulombs per metres sq; negative means negative surface charge
-	zeta_particle = zeta_part*1000 #mV
+	zeta_particle = zeta_part/1000 #mV
 	
 	
 		##Check baseline current calculations
@@ -246,7 +252,7 @@ def pore_calculate(a,b,d,rxy,rz,P0,V0, psi0, theta_d, zeta_part):
 	#calculating general properties of oblate/spheroid particle
 	SurfArea = particle_surface_area(rz,rxy)
 	DiffCoeff = particle_diffusion(rz, rxy)
-	EffCh=Eff_ch(zeta_particle, permettivity, rz, DiffCoeff)
+	EffCh=Eff_ch(zeta_particle, permettivity, rz, rxy)
 	
 	###for now leave theta=0
 	#Angle of ellipsoid to z-axis
@@ -354,4 +360,5 @@ def pore_calculate(a,b,d,rxy,rz,P0,V0, psi0, theta_d, zeta_part):
 
 #So for a non-rotated oblate spheroid
 #the command would be
+#pore_calculate(a,b,d,rxy,rz,P0,V0, psi0, theta_d, zeta_part)
 #pore_calculate(6.0e-6,40e-6,200e-6,3.35e-6, 1.04e-6, 15*9.8,0.15, 0.013, 0.0, -0.02)
