@@ -70,6 +70,8 @@ def pore_calculate(a,b,d,rxy,rz,P0,V0, psi0, theta_d, zeta_part):
 
 	def Eff_ch(zeta_particle, permettivity, a_H, DiffCoeff):
 		eff_ch = (4*permettivity*math.pi*zeta_particle*1e-3*a_H)/(DiffCoeff)
+		#def particle volume - use volume to caculate effective radius
+		#eff_ch = 3*permettivity*zeta_particle/(2*radius**2) #Geoff's edits
 		return eff_ch	
 		
 	##define surface function of spheroid
