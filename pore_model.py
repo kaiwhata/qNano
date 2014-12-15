@@ -68,10 +68,10 @@ def pore_calculate(a,b,d,rxy,rz,P0,V0, psi0, theta_d, zeta_part):
 		#See table 7-6.1 p. 341; table 7-3.1 p. 309; Eq 7-2.15 p. 291
 		return DiffCoeff
 
-	def Eff_ch(zeta_particle, permettivity, a_H, DiffCoeff):
-		eff_ch = (4*permettivity*math.pi*zeta_particle*1e-3*a_H)/(DiffCoeff)
+	def Eff_ch(zeta_particle, permettivity, radius):
+		#eff_ch = (4*permettivity*math.pi*zeta_particle*1e-3*a_H)/(DiffCoeff)
 		#def particle volume - use volume to caculate effective radius
-		#eff_ch = 3*permettivity*zeta_particle/(2*radius**2) #Geoff's edits
+		eff_ch = 3*permettivity*zeta_particle/(2*radius**2) #Geoff's edits
 		return eff_ch	
 		
 	##define surface function of spheroid
@@ -191,9 +191,9 @@ def pore_calculate(a,b,d,rxy,rz,P0,V0, psi0, theta_d, zeta_part):
 	
 	    return x
 	
-	def Eff_ch(zeta_particle, permettivity, a_H, DiffCoeff):
-		eff_ch = (4*permettivity*math.pi*zeta_particle*1e-3*a_H)/(DiffCoeff)
-		return eff_ch
+	#def Eff_ch(zeta_particle, permettivity, a_H, DiffCoeff):
+	#	eff_ch = (4*permettivity*math.pi*zeta_particle*1e-3*a_H)/(DiffCoeff)
+	#	return eff_ch
 	    
 	def calculate_FWHM(tspan, Delta_I):
 		#Find maximum Delta I and FWHM of what was just calcuated
