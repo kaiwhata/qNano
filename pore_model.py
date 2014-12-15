@@ -106,11 +106,11 @@ def pore_calculate(a,b,d,rxy,rz,P0,V0, psi0, theta_d, zeta_part):
 	##### PORE geometry
 	def rPore(z):
 		if z>d: #above pore
-			r = a+16*(z-d)/(27*math.pi)
+			r = a+16*(z-d)/(9*math.pi)
 		elif z>=0: #within pore
 			r = b-((b-a)/d)*z
 		elif z<0: #below pore
-			r = b-16*(z)/(27*math.pi)
+			r = b-16*(z)/(9*math.pi)
 		return r
 	
 	####Flow profile
