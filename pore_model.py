@@ -80,7 +80,7 @@ def pore_calculate(a,b,d,rxy,rz,P0,V0, psi0, theta_d, zeta_part):
         ###############
 		#def particle volume - use volume to calculate effective radius
 		eff_radius = math.pow((3*particle_volume(rz, rxy))/(4*math.pi), 1.0/3)      
-		eff_ch = 3*permettivity*zeta_particle/(2*eff_radius**2) #Geoff's edits
+		eff_ch = 3*permettivity*zeta_particle/(2*eff_radius) #Geoff's edits
 		print 'Eff Charge is %s C/m^2' % eff_ch
 		return eff_ch	
 		
